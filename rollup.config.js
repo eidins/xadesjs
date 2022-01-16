@@ -46,33 +46,7 @@ const browserExternals = {
 };
 
 const browser = [
-  {
-    input,
-    plugins: [
-      resolve({
-        mainFields: ["esnext", "module", "main"],
-        preferBuiltins: true,
-      }),
-      commonjs(),
-      typescript({
-        check: true,
-        clean: true,
-        tsconfigOverride: {
-          compilerOptions: {
-            module: "es2015",
-          }
-        }
-      }),
-    ],
-    external: Object.keys(browserExternals),
-    output: [
-      {
-        file: pkg.browser,
-        format: "es",
-        globals: browserExternals,
-      }
-    ]
-  },
+  main,
   {
     input: pkg.browser,
     external: Object.keys(browserExternals),
